@@ -20,7 +20,8 @@ async function getEnglishWordData() {
 
   return {
     word,
-    definition: entry?.definitions?.[0]?.definition || "No definition found.",
+    definition:
+      entry?.definitions?.[0]?.definition || "No definition available.",
     example: entry?.definitions?.[0]?.example || "No example available.",
     synonym:
       entry?.synonyms?.[0] || entry?.definitions?.[0]?.synonyms?.[0] || "None",
@@ -37,7 +38,7 @@ async function getSpanishWordData() {
   );
   const [word] = await wordRes.json();
 
-  // Spanish definitions + synonyms using Free Dictionary (es)
+  // Spanish definitions
   const dictRes = await fetch(
     `https://api.dictionaryapi.dev/api/v2/entries/es/${word}`
   );
@@ -47,7 +48,8 @@ async function getSpanishWordData() {
 
   return {
     word,
-    definition: entry?.definitions?.[0]?.definition || "No definition found.",
+    definition:
+      entry?.definitions?.[0]?.definition || "No definition available.",
     example: entry?.definitions?.[0]?.example || "No example available.",
     synonym:
       entry?.synonyms?.[0] || entry?.definitions?.[0]?.synonyms?.[0] || "None",
