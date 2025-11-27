@@ -75,19 +75,15 @@ async function main() {
   const spanish = await getSpanishWordData();
 
   const message = `
-    **🇪🇸 Spanish Word Of The Day**
-    **${spanish.word}:** ${spanish.definition} 
-  
-    **Sinónimos:** ${spanish.synonym}
-  
-    **Ejemplo:** ${spanish.example}
+##**🇪🇸 Spanish Word Of The Day**
+>>>**${spanish.word}:** ${spanish.definition} 
+**Sinónimos:** ${spanish.synonym}
+**Ejemplo:** ${spanish.example}
 
-    **🇬🇧 English Word Of The Day**
-    **${english.word}:** ${english.definition}
-
-    **Synonyms:** ${english.synonym}
-
-    **Usage:** ${english.example}
+##**🇬🇧 English Word Of The Day**
+>>>**${english.word}:** ${english.definition}
+**Synonyms:** ${english.synonym}
+**Usage:** ${english.example}
   `.trim();
 
   await sendToDiscord(message);
